@@ -93,7 +93,8 @@ const cardCreator = (objectData) => {
     name.textContent = objectData.name
     userName.textContent = objectData.login
     userLocation.textContent = objectData.location
-    link.href = objectData.url
+    link.textContent = objectData.html_url
+    link.href = objectData.html_url
     followers.textContent = `${objectData.login} has ${objectData.followers} followers`
     following.textContent = `${objectData.login} is following ${objectData.followers} `
     bio.textContent = `Bio: ${objectData.bio}`
@@ -110,6 +111,7 @@ axios.get("https://api.github.com/users/chad-scanlon")
 
 .then(response => {
     studentCard.prepend(cardCreator(response.data))
+    console.log(response)
 })
 
 const user = axios.get("https://api.github.com/users/tetondan")
